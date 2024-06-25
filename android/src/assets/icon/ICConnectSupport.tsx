@@ -1,0 +1,16 @@
+import React from "react";
+import Svg, {Path} from "react-native-svg";
+
+
+function ICConnectSupport() {
+    return (
+<Svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+<Path d="M3.5 8.25C3.5 7.69772 3.94772 7.25 4.5 7.25H27.5C28.0523 7.25 28.5 7.69772 28.5 8.25V23.75C28.5 24.3023 28.0523 24.75 27.5 24.75H4.5C3.94772 24.75 3.5 24.3023 3.5 23.75V8.25Z" stroke="black" stroke-width="1.2"/>
+<Path d="M3.5 8.5L16 16L28.5 8.5" stroke="black" stroke-width="1.2" stroke-linejoin="round"/>
+</Svg>
+
+
+    );
+  }
+  
+  export default ICConnectSupport;
