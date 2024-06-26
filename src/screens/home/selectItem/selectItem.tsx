@@ -1,9 +1,8 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, memo } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { styles } from "../../../styles/home/home";
 import ICBack from "../../../assets/icon/ICBack";
 import ToggleSwitchGlobal from "../../../components/ToggleSwitchGlobal";
-import ToggleSwitch from 'toggle-switch-react-native'
 
 
 interface SelectItemProps {
@@ -44,4 +43,4 @@ function SelectItem(props: SelectItemProps) {
     )
 }
 
-export default SelectItem
+export default memo(SelectItem)

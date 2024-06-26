@@ -7,7 +7,7 @@
 
 import React from 'react';
 import {SafeAreaView} from 'react-native';
-import Home from './android/src/screens/home';
+import Home from './src/screens/home';
 
 function App(): React.JSX.Element {
 
