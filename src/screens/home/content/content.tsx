@@ -9,7 +9,7 @@ import ICConnect from "../../../assets/icon/ICConnect";
 import ICSocial from "../../../assets/icon/ICSocial";
 import ICConnectSupport from "../../../assets/icon/ICConnectSupport";
 import ICHelp from "../../../assets/icon/ICHelp";
-import useStorage from "../../../hook/useStorage/useStorage";
+import useProfileStorage from "../../../hook/useStorage/useProfileStorage";
 
 interface IDataSelect {
     data: {
@@ -30,7 +30,7 @@ function ContentHome(): ReactElement {
     const [isOnNotification, setOnNotification] = useState<boolean>(false)
     const {setDataBiometric, getDataBiometric, setDataAllowNotification, getDataAllowNotification,valueBiometric,
         valueNotification,checkLoadBiometric,checkLoadNotification} 
-    = useStorage()
+    = useProfileStorage()
 
     const dataSelect:IDataSelect = {
         data: [

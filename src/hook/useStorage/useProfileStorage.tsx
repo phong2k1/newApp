@@ -3,7 +3,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useState } from "react";
 
 
-function useStorage() {
+function useProfileStorage() {
   const [valueBiometric, setValueBiometric] = useState<boolean>(false)
   const [valueNotification, setValueNotification] = useState<boolean>(false)
   const [checkLoadBiometric, setLoadBiometric] = useState<any>("")
@@ -59,7 +59,7 @@ function useStorage() {
     }
 }
 
-export default useStorage
+export default useProfileStorage
 
 
 
