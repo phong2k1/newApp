@@ -1,7 +1,7 @@
 import React, {ReactElement, useEffect, useState, memo, useCallback} from "react";
 import { View } from "react-native";
 import SelectItem from "../selectItem/selectItem";
-import { styles } from "../../../styles/home/home";
+import { styles } from "../../../styles/profile/myProfileStyle";
 import ICBiometric from "../../../assets/icon/ICBiometric";
 import ICNotification from "../../../assets/icon/ICNotification";
 import ICChangeLanguage from "../../../assets/icon/ICLanguage";
@@ -9,7 +9,7 @@ import ICConnect from "../../../assets/icon/ICConnect";
 import ICSocial from "../../../assets/icon/ICSocial";
 import ICConnectSupport from "../../../assets/icon/ICConnectSupport";
 import ICHelp from "../../../assets/icon/ICHelp";
-import useProfileStorage from "../../../hook/useStorage/useProfileStorage";
+import useProfileStorage from "../../../hook/useProfileStorage/useProfileStorage";
 
 interface IDataSelect {
     data: {

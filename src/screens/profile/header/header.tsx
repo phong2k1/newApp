@@ -1,12 +1,18 @@
 import React,{memo} from "react";
-import { styles } from "../../../styles/home/home";
+import { styles } from "../../../styles/profile/myProfileStyle";
 import { Text, View, TouchableOpacity, Image } from "react-native";
 import ICBack from "../../../assets/icon/ICBack";
 import ICLogout from "../../../assets/icon/ICLogout";
 import ICPen from "../../../assets/icon/ICPen";
 import { data } from "../../../api";
+import {useNavigation} from "@react-navigation/native";
+
 
 function Header() {
+    const navigation = useNavigation()
+    const handleBack = (): void => {
+        navigation.goBack()
+    }
     return(
         <View style = {styles.Header}>
         <Image 
@@ -14,7 +20,7 @@ function Header() {
             source={require("../../../assets/img/headers_with_image.png")}
         />
         <View style={styles.containerButtonBack}>
-            <TouchableOpacity style={styles.buttonBack}>
+            <TouchableOpacity onPress={handleBack} style={styles.buttonBack}>
                 <View style = {styles.ICBack}>
                     <ICBack/>
                 </View>

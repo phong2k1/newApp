@@ -6,15 +6,15 @@
  */
 
 import React from 'react';
-import {SafeAreaView} from 'react-native';
-import Home from './src/screens/home';
+import AppNavigator from "./src/routes/index";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
 
 function App(): React.JSX.Element {
 
   return (
-    <SafeAreaView>
-      <Home/>
-    </SafeAreaView>
+    <AppNavigator />
   );
 }
 

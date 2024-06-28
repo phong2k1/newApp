@@ -1,5 +1,5 @@
 import React, { ReactElement, memo } from "react";
-import { styles } from "../../../styles/home/home";
+import { styles } from "../../../styles/profile/myProfileStyle";
 import { View, Text, TouchableOpacity } from "react-native";
 import ICSharing from "../../../assets/icon/ICSharing";
 import ICTrailing from "../../../assets/icon/ICTrailing";

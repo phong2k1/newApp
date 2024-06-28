@@ -1,11 +1,11 @@
 import React, { ReactElement } from "react";
-import {ScrollView, View} from "react-native";
-import {styles} from "../../styles/home/home"
+import {Button, ScrollView, View} from "react-native";
+import {styles} from "../../styles/profile/myProfileStyle"
 import Header from "./header/header";
 import ContentHome from "./content/content";
 import FooterHome from "./footer/footer";
 
-function Home(): ReactElement {
+function Profile(): ReactElement {
     return (
         <ScrollView style={styles.container}>
             <Header />
@@ -15,5 +15,7 @@ function Home(): ReactElement {
         </ScrollView>
     )
 }
-export default Home
+export default Profile
+
+
 

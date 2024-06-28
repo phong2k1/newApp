@@ -1,6 +1,6 @@
 import React, { ReactElement, memo } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
-import { styles } from "../../../styles/home/home";
+import { styles } from "../../../styles/profile/myProfileStyle";
 import ICBack from "../../../assets/icon/ICBack";
 import ToggleSwitchGlobal from "../../../components/ToggleSwitchGlobal";
 
