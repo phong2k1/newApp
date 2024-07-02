@@ -1,4 +1,4 @@
-import React, { ReactElement, useState, memo, useEffect } from "react";
+import React, { ReactElement, useState, memo, useEffect, useRef } from "react";
 import { 
     Text, 
     TouchableOpacity, 
@@ -24,10 +24,11 @@ function ContentSignIn(): ReactElement {
         getDataEmail()
     },[])
 
-    useEffect(() => {
-        emailSignIn.length > 0 &&  navigation.navigate("ProfileRoute")
-    },[checkLoad])
-
+    // useEffect(() => {
+    //     emailSignIn.length > 0 &&  navigation.navigate("ProfileRoute")
+        
+    // },[checkLoad])
+    
     const handlerPressEmail = () => {
         setShowInput(0)
     }

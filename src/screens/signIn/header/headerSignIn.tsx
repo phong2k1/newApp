@@ -1,5 +1,5 @@
-import React, { ReactElement, useState } from "react";
-import { View,Text, ScrollView, TouchableOpacity } from "react-native";
+import React, { ReactElement} from "react";
+import { View,Text,TouchableOpacity } from "react-native";
 import ICSocial from "../../../assets/icon/ICSocial";
 import {styles} from "../../../styles/sigIn/signInStyle"
 

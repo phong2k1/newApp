@@ -1,5 +1,4 @@
-import SingIn from "../screens/signIn/singIn"
-import Profile from "../screens/profile";
+import Profile from "../../screens/profile";
  
 export type AppRootParamList = {
     ProfileRoute: undefined,
@@ -17,12 +16,7 @@ interface IRoute  {
     title: string,
 }
 
-const routes: IRoute[] = [
-    {
-        component: SingIn,
-        name: "SingInRoute",
-        title: "SingIn"
-    },
+const routesListProfile: IRoute[] = [
     {
         component: Profile,
         name: "ProfileRoute",
@@ -30,4 +24,4 @@ const routes: IRoute[] = [
     },
 ]
 
-export default routes
+export default routesListProfile

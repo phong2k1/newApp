@@ -7,14 +7,16 @@
 
 import React from 'react';
 import AppNavigator from "./src/routes/index";
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-const Stack = createNativeStackNavigator();
+import CheckLogin from "./src/routes/checkLogin/checkLogin"
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 function App(): React.JSX.Element {
-
+  const {check} = CheckLogin()
+  
   return (
-    <AppNavigator />
+    <SafeAreaProvider>
+      <AppNavigator check={check}/>
+    </SafeAreaProvider>
   );
 }
 

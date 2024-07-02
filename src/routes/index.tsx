@@ -1,28 +1,21 @@
 import React, { ReactElement } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import RouteList from "./routeList";
+import routesListProfile from "./routeListProfile/routeListProfile";
+import StackSignInScreen from "./routeListLogin/stackSignInScreen";
+import StackProfileScreen from "./routeListProfile/stackProfileScreen";
+
+
 
 const stackNavigator = createNativeStackNavigator()
 
-
-function StackScreen(): ReactElement {
-    return(
-    <stackNavigator.Navigator>
-        {
-            RouteList.map(({name, component}) => {
-                return(
-                    <stackNavigator.Screen options={{headerShown: false}} name={name} component={component} key={name} />
-                )
-            })
-        }
-    </stackNavigator.Navigator>)
-}
-
-function AppNavigator() {
+function AppNavigator({check}: any) {
     return(
         <NavigationContainer>
-            <StackScreen />
+            <stackNavigator.Navigator>
+                {!check && <stackNavigator.Screen name="SignInScreen" component={StackSignInScreen} options={{headerShown: false}} />}
+                <stackNavigator.Screen name="StackScreen" component={StackProfileScreen} options={{headerShown: false}} />
+            </stackNavigator.Navigator>
         </NavigationContainer>
     )
 }
