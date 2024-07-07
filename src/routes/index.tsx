@@ -1,21 +1,26 @@
-import React, { ReactElement } from "react";
+import React, {useEffect} from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import routesListProfile from "./routeListProfile/routeListProfile";
 import StackSignInScreen from "./routeListLogin/stackSignInScreen";
 import StackProfileScreen from "./routeListProfile/stackProfileScreen";
+import { useSelector, useDispatch } from "react-redux";
+import {login } from "../redux/userInfo/userInfoSlide";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import CheckLogin from "./checkLogin/checkLogin";
 
 
+interface IStateAccessToken {
+    user: {
+        access_token: string
+    }
+}
 
-const stackNavigator = createNativeStackNavigator()
 
-function AppNavigator({check}: any) {
+function AppNavigator() {
+    const {token} = CheckLogin()
     return(
         <NavigationContainer>
-            <stackNavigator.Navigator>
-                {!check && <stackNavigator.Screen name="SignInScreen" component={StackSignInScreen} options={{headerShown: false}} />}
-                <stackNavigator.Screen name="StackScreen" component={StackProfileScreen} options={{headerShown: false}} />
-            </stackNavigator.Navigator>
+            {token === null &&  <StackSignInScreen />}
+            {token && token !== "" && (<StackProfileScreen />)}
         </NavigationContainer>
     )
 }

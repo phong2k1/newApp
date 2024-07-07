@@ -6,12 +6,22 @@ import ICLogout from "../../../assets/icon/ICLogout";
 import ICPen from "../../../assets/icon/ICPen";
 import { data } from "../../../api";
 import {useNavigation} from "@react-navigation/native";
+import useSignInStorage from "../../../hook/useSignInStorage/useSignInStorage";
+import { useDispatch } from "react-redux";
+import { logout } from "../../../redux/userInfo/userInfoSlide";
 
 
 function Header() {
     const navigation = useNavigation()
+    const {removeDataEmail} = useSignInStorage()
+    const dispatch = useDispatch()
     const handleBack = (): void => {
         navigation.goBack()
+    }
+
+    const handleLogout = () => {
+        removeDataEmail()
+        dispatch(logout(null))
     }
     return(
         <View style = {styles.Header}>
@@ -26,7 +36,7 @@ function Header() {
                 </View>
                 <Text style={styles.textBack}>My Account</Text>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={handleLogout}>
                 <ICLogout />
             </TouchableOpacity>
         </View>

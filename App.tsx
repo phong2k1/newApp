@@ -7,15 +7,17 @@
 
 import React from 'react';
 import AppNavigator from "./src/routes/index";
-import CheckLogin from "./src/routes/checkLogin/checkLogin"
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { Provider } from 'react-redux';
+import store from "./src/redux/store"
 
 function App(): React.JSX.Element {
-  const {check} = CheckLogin()
   
   return (
     <SafeAreaProvider>
-      <AppNavigator check={check}/>
+      <Provider store={store}>
+      <AppNavigator/>
+      </Provider>
     </SafeAreaProvider>
   );
 }

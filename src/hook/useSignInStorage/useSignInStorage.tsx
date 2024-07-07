@@ -1,10 +1,8 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useState } from "react";
+import {useState} from "react";
 
 export default function useSignInStorage() {
-    const [emailSignIn, setEmailSignIn] = useState<any>("")
-    const [checkLoad, setCheckLoad] = useState<any>("")
-
+    const [emailSignIn, setEmailSignIn] = useState<any>(null)
 
     const setDataEmail = async (data: string) => {
         try {
@@ -17,8 +15,17 @@ export default function useSignInStorage() {
     const getDataEmail = async () => {
         try {
             let data = await AsyncStorage.getItem("KEY_EMAILSIGNIN")
-            setEmailSignIn(data)
-            setCheckLoad(data)
+            data && setEmailSignIn(data)
+            // setCheckLoad(data)
+            
+        } catch {
+            //err
+        }
+    }
+
+    const removeDataEmail = async () => {
+        try {
+            await AsyncStorage.removeItem("KEY_EMAILSIGNIN")
         } catch {
             //err
         }
@@ -28,7 +35,7 @@ export default function useSignInStorage() {
         setDataEmail,
         getDataEmail,
         emailSignIn,
-        checkLoad
+        removeDataEmail
     }
 
 }

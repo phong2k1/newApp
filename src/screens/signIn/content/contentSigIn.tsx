@@ -11,23 +11,21 @@ import { styles } from "../../../styles/sigIn/signInStyle";
 import { Formik } from "formik";
 import { useNavigation } from "@react-navigation/native";
 import useSignInStorage from "../../../hook/useSignInStorage/useSignInStorage"
+import { useDispatch } from "react-redux";
+import { login } from "../../../redux/userInfo/userInfoSlide";
 
 function ContentSignIn(): ReactElement {
     const [showInput, setShowInput] = useState<number>(0)
     const [checkEmail, setCheckEmail] = useState<string>("")
     const [checkMobileNumber, setCheckMobileNumber] = useState<string>("")
-    const {emailSignIn, getDataEmail, setDataEmail, checkLoad} = useSignInStorage()
+    const {emailSignIn, getDataEmail, setDataEmail, removeDataEmail} = useSignInStorage()
 
     const navigation = useNavigation()
+    const dispatch = useDispatch()
 
     useEffect(() => {
         getDataEmail()
     },[])
-
-    // useEffect(() => {
-    //     emailSignIn.length > 0 &&  navigation.navigate("ProfileRoute")
-        
-    // },[checkLoad])
     
     const handlerPressEmail = () => {
         setShowInput(0)
@@ -43,7 +41,7 @@ function ContentSignIn(): ReactElement {
 
     const handleNext = (props: {email: string, mobileNumber: string}) => {
         setDataEmail(props.email)
-        navigation.navigate("ProfileRoute")
+        dispatch(login(props.email))
     }
 
     return(

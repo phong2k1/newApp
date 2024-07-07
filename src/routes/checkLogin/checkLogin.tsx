@@ -1,18 +1,28 @@
-import { useState, useEffect } from "react";
-import useSignInStorage from "../../hook/useSignInStorage/useSignInStorage";
+import {useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { login } from "../../redux/userInfo/userInfoSlide";
+
+interface IStateAccessToken {
+    user: {
+        access_token: string
+    }
+}
 
 export default function CheckLogin() {
-    const {emailSignIn, checkLoad, getDataEmail} = useSignInStorage()
-    const [check, setCheck] = useState<boolean>(false)
+
+    const token = useSelector((state: IStateAccessToken) => state.user.access_token)
+    const dispatch = useDispatch()
+
+    const init = async () => {
+        const data = await AsyncStorage.getItem("KEY_EMAILSIGNIN")
+        dispatch(login(data))
+    }
 
     useEffect(() => {
-        getDataEmail()
+        init()
     },[])
 
-    useEffect(() => {
-        emailSignIn.length > 0 ?  setCheck(true) : setCheck(false)
-    },[checkLoad])
-
-    return {check}
+    return {token}
 }
 
